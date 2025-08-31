@@ -1,0 +1,678 @@
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="new_rover_9">
+
+  <material name="aquaRed" >
+    <color rgba="0.00784313725490196 0.8470588235294118 0.9137254901960784 1.0" />
+  </material>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.132082956642453 -0.0248549723848036 0.162687233510363"
+        rpy="0 0 0" />
+      <mass
+        value="6.70568836181802" />
+      <inertia
+        ixx="0.0530040371661519"
+        ixy="5.39048989035611E-06"
+        ixz="-0.000308151386698881"
+        iyy="0.0580509304770264"
+        iyz="-2.67450621313034E-06"
+        izz="0.0943643241885065" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="sus1_link">
+    <inertial>
+      <origin
+        xyz="-0.107851740412222 0.00869273249687041 0.000618817187424514"
+        rpy="0 0 0" />
+      <mass
+        value="1.36449713758733" />
+      <inertia
+        ixx="0.000623567175926047"
+        ixy="-5.79272053863803E-05"
+        ixz="7.02961351421298E-07"
+        iyy="0.00839831717666517"
+        iyz="3.38116418252128E-07"
+        izz="0.00861037577387492" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/sus1_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/sus1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="sus1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.175987105974914 -0.354299998643391 0.133710652802224"
+      rpy="0 0 -3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="sus1_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit lower="-0.1" upper="0.1" effort="100000.0" velocity="1.5708"/>
+  </joint>
+  <link
+    name="front_l_h_l">
+    <inertial>
+      <origin
+        xyz="-0.000242820763046825 -0.08521856497559 -0.109618046061958"
+        rpy="0 0 0" />
+      <mass
+        value="0.813058286010916" />
+      <inertia
+        ixx="0.00643476722942301"
+        ixy="-4.22326685621668E-06"
+        ixz="-5.18172608823083E-06"
+        iyy="0.00498647334398899"
+        iyz="-0.00161084614326428"
+        izz="0.0022353416254673" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/front_l_h_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/front_l_h_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_l_h_j"
+    type="continuous">
+    <origin
+      xyz="0.400000000910628 0.0710000001158667 -0.0380000000953806"
+      rpy="0 0 0" />
+    <parent
+      link="sus1_link" />
+    <child
+      link="front_l_h_l" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="front_left_wheel_link">
+    <inertial>
+      <origin
+        xyz="-4.38557242170567E-05 -0.0552090924540035 0.000113214876528711"
+        rpy="0 0 0" />
+      <mass
+        value="2.61461725257028" />
+      <inertia 
+        ixx="0.0205058360674925"
+        ixy="4.37970910857377E-05"
+        ixz="8.05363520707392E-08"
+        iyy="0.0358767128408902"
+        iyz="5.15279358578612E-10"
+        izz="0.0205057088690665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/front_left_wheel_link.STL" />
+      </geometry>
+  <material name="Gazebo/SkyBlue">
+  <script>
+    <uri>file://media/materials/scripts/gazebo.material</uri>
+    <name>Gazebo/SkyBlue</name>
+  </script>
+</material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/front_left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.000176658071734836 0.0619997483847696 -0.193999999650114"
+      rpy="0 0 0" />
+    <parent
+      link="front_l_h_l" />
+    <child
+      link="front_left_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="back_l_h_l">
+    <inertial>
+      <origin
+        xyz="-5.48018288040741E-09 -0.0852189109963623 -0.109618042855027"
+        rpy="0 0 0" />
+      <mass
+        value="0.813058285839034" />
+      <inertia
+        ixx="0.006434779537654"
+        ixy="-9.65720636613933E-08"
+        ixz="-5.91903354356779E-07"
+        iyy="0.00498646103499787"
+        iyz="-0.00161085436854782"
+        izz="0.00223534162524064" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/back_l_h_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/back_l_h_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_l_hJ"
+    type="continuous">
+    <origin
+      xyz="-0.399999999057761 0.0710000001721209 -0.0380000012807069"
+      rpy="0 0 0" />
+    <parent
+      link="sus1_link" />
+    <child
+      link="back_l_h_l" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="back_left_wheel_link">
+    <inertial>
+      <origin
+        xyz="0.000108343283359524 -0.0580906575113568 0.000107999200660402"
+        rpy="0 0 0" />
+      <mass
+        value="2.73944703834587" />
+      <inertia
+        ixx="0.0206493482255812"
+        ixy="5.15609150732447E-10"
+        ixz="8.01838055968275E-08"
+        iyy="0.0361230128636748"
+        iyz="3.21485909733008E-10"
+        izz="0.0206493458194449" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/back_left_wheel_link.STL" />
+      </geometry>
+<material name="Gazebo/SkyBlue">
+  <script>
+    <uri>file://media/materials/scripts/gazebo.material</uri>
+    <name>Gazebo/SkyBlue</name>
+  </script>
+</material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/back_left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0619999999999999 -0.194000000347058"
+      rpy="0 0 0" />
+    <parent
+      link="back_l_h_l" />
+    <child
+      link="back_left_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="sus2_link">
+    <inertial>
+      <origin
+        xyz="0.0330258016614403 0.00446937753693932 -0.00265347295417251"
+        rpy="0 0 0" />
+      <mass
+        value="1.51351853803693" />
+      <inertia
+        ixx="0.00118936552688235"
+        ixy="-3.14090423072223E-15"
+        ixz="-1.84724136897124E-11"
+        iyy="0.00950211267187387"
+        iyz="1.44958064910376E-09"
+        izz="0.00945496383734068" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/sus2_link.STL" />
+      </geometry>
+  <material name="Gazebo/SkyBlue">
+  <script>
+    <uri>file://media/materials/scripts/gazebo.material</uri>
+    <name>Gazebo/SkyBlue</name>
+  </script>
+</material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/sus2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="sus2_joint"
+    type="revolute">
+    <origin
+      xyz="-0.175987106860856 0.354300001186029 0.133710652113138"
+      rpy="0 0.00357594456426887 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="sus2_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit lower="-0.1" upper="0.1" effort="10000.0" velocity="1.5708"/>
+    <mimic joint="sus1_joint" multiplier="-1.0" offset="0.0"/> 
+  </joint>
+  <link
+    name="front_r_h_l">
+    <inertial>
+      <origin
+        xyz="4.86645390651574E-09 0.085218911040194 -0.10961804455372"
+        rpy="0 0 0" />
+      <mass
+        value="0.813058287609234" />
+      <inertia
+        ixx="0.00643477954179645"
+        ixy="-9.65649492468235E-08"
+        ixz="5.91885627826755E-07"
+        iyy="0.00498646103917411"
+        iyz="0.0016108543700911"
+        izz="0.00223534162739043" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/front_r_h_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/front_r_h_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_r_h_j"
+    type="continuous">
+    <origin
+      xyz="0.399999999999999 -0.0710000000035129 -0.0380000000000013"
+      rpy="0 0 0" />
+    <parent
+      link="sus2_link" />
+    <child
+      link="front_r_h_l" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="front_right_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.000113454359543574 0.0552089937849367 0.000113217182604319"
+        rpy="0 0 0" />
+      <mass
+        value="2.61461727423235" />
+      <inertia
+        ixx="0.0205057112753755"
+        ixy="9.04712398629322E-11"
+        ixz="-8.05340897281517E-08"
+        iyy="0.0358768376354114"
+        iyz="-7.46678116656255E-10"
+        izz="0.0205057088695035" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/front_right_wheel_link.STL" />
+      </geometry>
+  <material name="Gazebo/SkyBlue">
+  <script>
+    <uri>file://media/materials/scripts/gazebo.material</uri>
+    <name>Gazebo/SkyBlue</name>
+  </script>
+</material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/front_right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0620000000000003 -0.193999999999999"
+      rpy="0 0 0" />
+    <parent
+      link="front_r_h_l" />
+    <child
+      link="front_right_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="back_r_h_l">
+    <inertial>
+      <origin
+        xyz="0.00402031957380141 0.085124026231707 -0.106618044690216"
+        rpy="0 0 0" />
+      <mass
+        value="0.813058290423122" />
+      <inertia
+        ixx="0.00643154706202593"
+        ixy="-6.83463973916225E-05"
+        ixz="7.6585409160035E-05"
+        iyy="0.00498969353188392"
+        iyz="0.0016090328881658"
+        izz="0.00223534163080321" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/back_r_h_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/back_r_h_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_r_h_j"
+    type="continuous">
+    <origin
+      xyz="-0.399999999999984 -0.0709999999999851 -0.0410000000000155"
+      rpy="0 0 0" />
+    <parent
+      link="sus2_link" />
+    <child
+      link="back_r_h_l" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="back_right_wheel_link">
+    <inertial>
+      <origin
+        xyz="0.00250492295307812 0.055461749017975 0.00011398112616029"
+        rpy="0 0 0" />
+      <mass
+        value="2.59563281881356" />
+      <inertia
+        ixx="0.0205372678750687"
+        ixy="0.000724255886771007"
+        ixz="-8.01123581742274E-08"
+        iyy="0.0358380639620823"
+        iyz="3.47254329926727E-09"
+        izz="0.0205030596334987" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/back_right_wheel_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://new_rover_9/meshes/back_right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.00292493192265439 -0.0619309678048843 -0.190999999999974"
+      rpy="0 0 0" />
+    <parent
+      link="back_r_h_l" />
+    <child
+      link="back_right_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+
+
+   <!-- <material name="aquaRed" >
+    <color rgba="0.00784313725490196 0.8470588235294118 0.9137254901960784 1.0" />
+  </material> -->
+
+
+  <gazebo reference="front_left_wheel_link"> 
+    
+    <material>Gazebo/SkyBlue</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+  <gazebo reference="back_left_wheel_link"> 
+    
+    <material>Gazebo/SkyBlue</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+  <gazebo reference="front_right_wheel_link"> 
+    
+    <material>Gazebo/SkyBlue</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+  <gazebo reference="back_right_wheel_link"> 
+    
+    <material>Gazebo/SkyBlue</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+
+  <gazebo reference="sus2_link"> 
+    
+    <material>Gazebo/Grey</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+  <gazebo reference="sus1_link"> 
+    
+    <material>Gazebo/Grey</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+
+
+
+  <gazebo reference="front_l_h_l"> 
+    
+    <material>Gazebo/Grey</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+  <gazebo reference="back_l_h_l"> 
+    
+    <material>Gazebo/Grey</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+  <gazebo reference="front_r_h_l"> 
+    
+    <material>Gazebo/Grey</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+  <gazebo reference="back_r_h_l"> 
+    
+    <material>Gazebo/Grey</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+
+  <gazebo reference="base_link"> 
+    
+    <material>Gazebo/Grey</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>True</selfCollide>
+  </gazebo>
+
+
+
+
+  <!-- <gazebo>
+    <plugin
+      filename="libgazebo_ackermann_steering.so"
+      name="ackerman_drive">
+      
+    </plugin>
+    </gazebo> -->
+</robot>

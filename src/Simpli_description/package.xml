@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>Simpli_description</name>
+  <version>1.0.0</version>
+  <description>
+    <p>URDF Description package for urdf_new</p>
+    <p>This package contains configuration data, 3D models and launch files
+for urdf_new robot</p>
+  </description>
+  <!-- <author>TODO</author> -->
+  <maintainer email="TODO@email.com" />
+  <license>BSD</license>
+  <depend>joint_state_publisher</depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+  <depend>rclpy</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>tf2_ros</depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>diff_drive_controller</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>position_controllers</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rqt_robot_steering</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  
+  <export>
+    <architecture_independent />
+    <build_type>ament_cmake</build_type>
+    <gazebo_ros gazebo_model_path="${prefix}/.."/>
+  </export>
+</package>

@@ -1,0 +1,522 @@
+<?xml version="1.0"?>
+<robot name="Simpli" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Simpli_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Simpli_description)/urdf/Simpli.trans" />
+<xacro:include filename="$(find Simpli_description)/urdf/Simpli.gazebo" />
+<!-- <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" /> -->
+<!-- <xacro:include filename="$(find Simpli_description)/urdf/Simpli.gazebo" /> -->
+  <plugin name="ground_truth" filename="libgazebo_ros_ground_truth.so">
+      <ros>
+          <namespace>/my_robot</namespace>
+      </ros>
+      <body_name>base_footprint</body_name>
+  </plugin>
+<link name="base_footprint"/>
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0993592428075129 0.20285433197649155 0.3248027417561286" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0" iyy="0" izz="0" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="SusLink1_1">
+ <inertial>
+      <origin xyz="0.0076296279351809 -0.104564015967683 0.00758227514567017" rpy="0 0 0" />
+      <mass value="2.84593043715817" />
+      <inertia ixx="0.00346542776413585" ixy="7.8871272176111E-06" ixz="1.61487682681837E-09" iyy="0.0139665128327182" iyz="-0.000180346719074798" izz="0.0142125854512904" />
+    </inertial>
+  <visual>
+    <origin xyz="-0.090838 0.215447 -0.333108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/SusLink1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.090838 0.215447 -0.333108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/SusLink1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="SusLink2_1">
+  <inertial>
+      <origin xyz="-0.00762962793518102 -0.128193454995343 0.00757474343167092" rpy="0 0 0" />
+      <mass value="2.84593043715818" />
+      <inertia ixx="0.00346542776405294" ixy="7.88712663600798E-06" ixz="3.4130409208752E-09" iyy="0.0139662829957595" iyz="0.000180189704790627" izz="0.0142128152880372" />
+    </inertial>
+  <visual>
+    <origin xyz="-0.090838 -0.621153 -0.333108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/SusLink2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.090838 -0.621153 -0.333108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/SusLink2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- <link name="DiffBar_1">
+  <inertial>
+    <origin xyz="-0.0042589094270732986 -0.0065362917924819686 -0.009429103200700756" rpy="0 0 0"/>
+    <mass value="0.9674440951404227"/>
+    <inertia ixx="0.025056" iyy="0.000196" izz="0.025094" ixy="0.000467" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.084168 -0.202853 -0.213117" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/DiffBar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.084168 -0.202853 -0.213117" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/DiffBar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="TieRod1_1">
+  <inertial>
+    <origin xyz="0.08836662359557516 -0.006402017513346167 -0.00474897755025247" rpy="0 0 0"/>
+    <mass value="0.36706330109475493"/>
+    <inertia ixx="2.5e-05" iyy="0.001051" izz="0.001053" ixy="7.5e-05" iyz="-2e-06" ixz="5.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.083738 0.053637 -0.203117" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/TieRod1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.083738 0.053637 -0.203117" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/TieRod1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="TieRod1_2">
+  <inertial>
+    <origin xyz="-0.08836537640442484 0.006407982486653842 0.00474302244974753" rpy="0 0 0"/>
+    <mass value="0.36706330109475493"/>
+    <inertia ixx="2.5e-05" iyy="0.001051" izz="0.001053" ixy="7.5e-05" iyz="-2e-06" ixz="5.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.092994 0.066447 -0.193625" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/TieRod1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.092994 0.066447 -0.193625" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/TieRod1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="TieRod2_1">
+  <inertial>
+    <origin xyz="0.08765458393581513 0.012940750943937873 -0.004624885248791177" rpy="0 0 0"/>
+    <mass value="0.36706330109475493"/>
+    <inertia ixx="4.2e-05" iyy="0.001035" izz="0.001052" ixy="-0.00015" iyz="9e-06" ixz="5.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.093119 -0.446275 -0.203118" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/TieRod2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.093119 -0.446275 -0.203118" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/TieRod2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="TieRod2_2">
+  <inertial>
+    <origin xyz="-0.08765441606418486 -0.012937249056062139 0.004616114751208822" rpy="0 0 0"/>
+    <mass value="0.36706330109475493"/>
+    <inertia ixx="4.2e-05" iyy="0.001035" izz="0.001052" ixy="-0.00015" iyz="9e-06" ixz="5.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.08219 -0.472153 -0.193877" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/TieRod2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.08219 -0.472153 -0.193877" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/TieRod2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link> -->
+
+<link name="WheelHub1_1">
+  <inertial>
+    <origin xyz="0.0008874172030213234 0.01623999057516723 -0.14024852680471478" rpy="0 0 0"/>
+    <mass value="5.678729188798619"/>
+    <inertia ixx="0.042719" iyy="0.029461" izz="0.016849" ixy="0.000684" iyz="0.004373" ixz="8.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.566511 0.205023 -0.237232" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/WheelHub1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.566511 0.205023 -0.237232" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/WheelHub1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="WheelHub2_1">
+  <inertial>
+    <origin xyz="0.0012548344370681974 0.016239929613387744 -0.14024572094376764" rpy="0 0 0"/>
+    <mass value="5.678729188798619"/>
+    <inertia ixx="0.042718" iyy="0.029461" izz="0.016849" ixy="0.000674" iyz="0.004375" ixz="0.000153"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.381644 0.205023 -0.222575" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/WheelHub2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.381644 0.205023 -0.222575" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/WheelHub2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="WheelHub3_1">
+  <inertial>
+    <origin xyz="-0.009091143784812572 -0.016262021471290966 -0.1399543955475302" rpy="0 0 0"/>
+    <mass value="5.678729188798619"/>
+    <inertia ixx="0.042632" iyy="0.029433" izz="0.016965" ixy="-0.000688" iyz="-0.004335" ixz="-0.001716"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.388783 -0.610728 -0.259482" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/WheelHub3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.388783 -0.610728 -0.259482" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/WheelHub3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="WheelHub4_1">
+  <inertial>
+    <origin xyz="-0.009458231653647675 -0.016262053809790733 -0.13992949376127228" rpy="0 0 0"/>
+    <mass value="5.678729188798619"/>
+    <inertia ixx="0.042622" iyy="0.029433" izz="0.016974" ixy="-0.000699" iyz="-0.004334" ixz="-0.001783"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.557662 -0.610728 -0.200698" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/WheelHub4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.557662 -0.610728 -0.200698" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/WheelHub4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel1_1">
+  <inertial>
+    <origin xyz="0.0025635049590465586 -0.04643893742609473 0.0010180755147832024" rpy="0 0 0"/>
+    <mass value="8.556357615264847"/>
+    <inertia ixx="0.032239" iyy="0.050083" izz="0.032193" ixy="-0.000988" iyz="-0.000393" ixz="2.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.566526 0.162462 -0.053973" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/wheel1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.566526 0.162462 -0.053973" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/wheel1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel2_1">
+  <inertial>
+    <origin xyz="0.0025633547201009965 -0.0464389373565775 0.0010254877708121835" rpy="0 0 0"/>
+    <mass value="8.556357615264847"/>
+    <inertia ixx="0.032239" iyy="0.050083" izz="0.032193" ixy="-0.000988" iyz="-0.000395" ixz="2.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.38115 0.162462 -0.039316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/wheel2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.38115 0.162462 -0.039316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/wheel2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel3_1">
+  <inertial>
+    <origin xyz="0.0015360600478991904 0.04644501114089672 0.0008902175627936992" rpy="0 0 0"/>
+    <mass value="8.556357615264847"/>
+    <inertia ixx="0.032204" iyy="0.05012" izz="0.032191" ixy="0.000593" iyz="0.000344" ixz="1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.401379 -0.56812 -0.076667" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/wheel3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.401379 -0.56812 -0.076667" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/wheel3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel4_1">
+  <inertial>
+    <origin xyz="0.0015356015680213497 0.04644501110935906 0.0008865072334454348" rpy="0 0 0"/>
+    <mass value="8.556357615264847"/>
+    <inertia ixx="0.032204" iyy="0.05012" izz="0.032191" ixy="0.000593" iyz="0.000343" ixz="1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.544588 -0.56812 -0.017917" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/wheel4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.544588 -0.56812 -0.017917" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Simpli_description/meshes/wheel4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<joint name="base_link" type="fixed">
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <parent link="base_footprint"/>
+  <child link="base_link"/>
+</joint>
+
+<joint name="Revolute_1" type="continuous">
+  <origin xyz="0.090838 -0.215447 0.333108" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="SusLink1_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+  <limit effort="100.0" lower="-0.24" upper="0.24" velocity="100.0" />
+  <dynamics friction="1.0" damping="0.1" />
+</joint>
+
+<joint name="Revolute_2" type="continuous">
+  <origin xyz="0.090838 0.621153 0.333108" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="SusLink2_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <limit effort="100.0" lower="-0.24" upper="0.24" velocity="100.0" />
+  <dynamics friction="1.0" damping="0.1" />
+  <mimic joint="Revolute_1" />
+</joint>
+
+<!-- <joint name="Revolute_3" type="continuous">
+  <origin xyz="-0.084168 0.202853 0.213117" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="DiffBar_1"/>
+  <axis xyz="-5.1e-05 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute_4" type="continuous">
+  <origin xyz="0.177162 -0.2693 -0.019492" rpy="0 0 0"/>
+  <parent link="DiffBar_1"/>
+  <child link="TieRod1_1"/>
+</joint>
+
+<joint name="Revolute_5" type="continuous">
+  <origin xyz="0.002156 0.149 -0.139483" rpy="0 0 0"/>
+  <parent link="SusLink1_1"/>
+  <child link="TieRod1_2"/>
+</joint>
+
+<joint name="Revolute_6" type="continuous">
+  <origin xyz="0.166358 0.2693 -0.01924" rpy="0 0 0"/>
+  <parent link="DiffBar_1"/>
+  <child link="TieRod2_1"/>
+</joint>
+
+<joint name="Revolute_7" type="continuous">
+  <origin xyz="-0.008648 -0.149 -0.139231" rpy="0 0 0"/>
+  <parent link="SusLink2_1"/>
+  <child link="TieRod2_2"/>
+</joint> -->
+
+<joint name="Revolute_8" type="continuous">
+  <origin xyz="0.475673 0.010424 -0.095876" rpy="0 0 0"/>
+  <parent link="SusLink1_1"/>
+  <child link="WheelHub1_1"/>
+  <axis xyz="-0.014139 0.02116 0.999676"/>
+</joint>
+
+<joint name="Revolute_9" type="continuous">
+  <origin xyz="-0.472482 0.010424 -0.110533" rpy="0 0 0"/>
+  <parent link="SusLink1_1"/>
+  <child link="WheelHub2_1"/>
+  <axis xyz="-0.016767 0.02116 0.999635"/>
+</joint>
+
+<joint name="Revolute_10" type="continuous">
+  <origin xyz="-0.479621 -0.010425 -0.073626" rpy="0 0 0"/>
+  <parent link="SusLink2_1"/>
+  <child link="WheelHub3_1"/>
+  <axis xyz="0.060665 -0.02116 0.997934"/>
+</joint>
+
+<joint name="Revolute_11" type="continuous">
+  <origin xyz="0.466824 -0.010425 -0.13241" rpy="0 0 0"/>
+  <parent link="SusLink2_1"/>
+  <child link="WheelHub4_1"/>
+  <axis xyz="0.063288 -0.02116 0.997771"/>
+</joint>
+
+<joint name="Revolute_12" type="continuous">
+  <origin xyz="1.5e-05 0.042561 -0.183259" rpy="0 0 0"/>
+  <parent link="WheelHub1_1"/>
+  <child link="wheel1_1"/>
+  <axis xyz="-0.0551 0.99824 -0.021909"/>
+</joint>
+
+<joint name="Revolute_13" type="continuous">
+  <origin xyz="0.000494 0.042561 -0.183259" rpy="0 0 0"/>
+  <parent link="WheelHub2_1"/>
+  <child link="wheel2_1"/>
+  <axis xyz="-0.055098 0.998237 -0.022055"/>
+</joint>
+
+<joint name="Revolute_14" type="continuous">
+  <origin xyz="-0.012596 -0.042608 -0.182815" rpy="0 0 0"/>
+  <parent link="WheelHub3_1"/>
+  <child link="wheel3_1"/>
+  <axis xyz="-0.033053 0.99927 -0.019179"/>
+</joint>
+
+<joint name="Revolute_15" type="continuous">
+  <origin xyz="-0.013074 -0.042608 -0.182781" rpy="0 0 0"/>
+  <parent link="WheelHub4_1"/>
+  <child link="wheel4_1"/>
+  <axis xyz="-0.033047 0.999271 -0.019096"/>
+</joint>
+
+
+<!-- <xacro:sensor_d435 name="camera" parent="base_link" publish_pointcloud="true">
+    <origin xyz="0.3 0.25 0.3" rpy="0 0 0"/>
+</xacro:sensor_d435> -->
+
+
+
+<gazebo reference="base_link">
+  <sensor type="imu" name="leo_imu_sensor">
+    <update_rate>100</update_rate>
+    <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+      <robotNamespace>/</robotNamespace>
+      <topicName>imu/data_raw</topicName>
+      <frameName>imu_frame</frameName>
+      <updateRateHZ>100.0</updateRateHZ>
+      <gaussianNoise>0.01</gaussianNoise>
+      <initialOrientationAsReference>false</initialOrientationAsReference>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo>
+      <plugin name="rocker_differential" filename="libleo_gazebo_differential_plugin.so">
+      <robotNamespace>/</robotNamespace>
+        <jointA>Revolute_1</jointA>
+        <jointB>Revolute_2</jointB>
+        <forceConstant>100.0</forceConstant>
+      </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/</robotNamespace>
+    <frameName>map</frameName>
+    <bodyName>base_footprint</bodyName>
+    <topicName>ground_truth_raw</topicName>
+    <updateRate>30.0</updateRate>
+  </plugin>
+</gazebo>
+
+<!-- <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>hellos_urdf</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+  </plugin>
+</gazebo> -->
+
+<gazebo>
+  <plugin name="ros2_control" filename="libgazebo_ros2_control.so">
+    <ros>
+      <namespace>/my_robot</namespace>
+    </ros>
+    <robot_param>robot_description</robot_param>
+  </plugin>
+</gazebo>
+
+
+</robot>
